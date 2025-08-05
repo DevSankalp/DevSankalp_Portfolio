@@ -10,9 +10,7 @@ import {
   motion,
   AnimatePresence,
   Transition,
-  type VariantLabels,
   type Target,
-  type TargetAndTransition,
 } from "framer-motion";
 
 function cn(...classes: (string | undefined | null | boolean)[]): string {
@@ -94,7 +92,7 @@ const RotatingIcon = forwardRef<RotatingTextRef, RotatingTextProps>(
         characters: splitIntoCharacters(word),
         needsSpace: i !== words.length - 1,
       }));
-    }, [currentText, splitBy]);
+    }, [currentText]);
 
     const getStaggerDelay = useCallback(
       (index: number, totalChars: number): number => {
@@ -128,7 +126,7 @@ const RotatingIcon = forwardRef<RotatingTextRef, RotatingTextProps>(
             : currentTextIndex
           : currentTextIndex + 1;
       handleIndexChange(nextIndex);
-    }, [currentTextIndex, texts, loop]);
+    }, [currentTextIndex, texts, loop, handleIndexChange]);
 
     useImperativeHandle(ref, () => ({
       next,

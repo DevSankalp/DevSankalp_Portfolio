@@ -9,6 +9,7 @@ import {
   IconMail,
 } from "@tabler/icons-react";
 import MagneticButton from "./ui/MagneticButton";
+import Image from "next/image";
 
 // Sidebar1: Main sidebar navigation for desktop view
 export function Sidebar1() {
@@ -40,9 +41,11 @@ export function Sidebar1() {
                   label: "DevSankalp",
                   href: "http://linkedin.com/in/sankalp-srivastava-4b76a622b/",
                   icon: (
-                    <img
+                    <Image
                       src="/pfp.jpeg"
                       alt="logo"
+                      width={100}
+                      height={100}
                       className="w-8 h-8 rounded-full hover:invert-100"
                     />
                   ),

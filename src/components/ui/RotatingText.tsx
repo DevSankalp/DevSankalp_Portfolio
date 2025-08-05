@@ -267,4 +267,5 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
   }
 );
 
+RotatingText.displayName = "RotatingText";
 export default RotatingText;

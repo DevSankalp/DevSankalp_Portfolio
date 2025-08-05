@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import data from "@/data/personalData.json";
 import Threads from "@/components/ui/Threads";
 import { Parallax } from "react-scroll-parallax";
-
 import RotatingText from "@/components/ui/RotatingText";
 
 // HeroSection: Landing/intro section with animated background and rotating titles

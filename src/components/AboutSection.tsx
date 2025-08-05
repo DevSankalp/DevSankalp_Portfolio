@@ -107,8 +107,8 @@ const AboutSection = () => {
               transition={{ type: "spring", stiffness: 100, damping: 20 }}
             >
               <p className="italic text-gray-400 border-l-6 border-gray-400 px-2">
-                ' Turning ideas into scalable experiences — one line of code at
-                a time. '
+                &apos; Turning ideas into scalable experiences — one line of
+                code at a time. &apos;
               </p>
             </motion.h2>
             {/* Bio text */}

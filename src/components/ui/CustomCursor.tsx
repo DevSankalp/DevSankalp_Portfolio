@@ -22,16 +22,29 @@ export default function CustomCursor() {
       };
       el.addEventListener("mouseenter", onEnter);
       el.addEventListener("mouseleave", onLeave);
-      (el as any)._onEnter = onEnter;
-      (el as any)._onLeave = onLeave;
+      // Attach handlers to element for cleanup, using HTMLElement with index signature
+      (
+        el as HTMLElement & { _onEnter?: () => void; _onLeave?: () => void }
+      )._onEnter = onEnter;
+      (
+        el as HTMLElement & { _onEnter?: () => void; _onLeave?: () => void }
+      )._onLeave = onLeave;
     });
     return () => {
       hoverEls.forEach((el) => {
-        el.removeEventListener("mouseenter", (el as any)._onEnter);
-        el.removeEventListener("mouseleave", (el as any)._onLeave);
+        const elem = el as HTMLElement & {
+          _onEnter?: () => void;
+          _onLeave?: () => void;
+        };
+        if (elem._onEnter) {
+          el.removeEventListener("mouseenter", elem._onEnter);
+        }
+        if (elem._onLeave) {
+          el.removeEventListener("mouseleave", elem._onLeave);
+        }
       });
     };
-  }, []);
+  }, [innerRef]);
 
   return (
     <>

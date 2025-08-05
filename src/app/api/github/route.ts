@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request) {
+export async function GET() {
   const GITHUB_USERNAME = "DevSankalp";
 
-  let url = `https://api.github.com/users/${GITHUB_USERNAME}`;
+  const url = `https://api.github.com/users/${GITHUB_USERNAME}`;
 
   const res = await fetch(url, {
     headers: {
